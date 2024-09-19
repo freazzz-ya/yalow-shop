@@ -1,0 +1,153 @@
+﻿{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <section class="hero-section position-relative bg-light-blue padding-medium">
+      <div class="hero-content">
+        <div class="container">
+          <div class="row">
+            <div class="text-center padding-large no-padding-bottom">
+              <h1 class="display-3  text-dark">Каталог</h1>
+              <div class="breadcrumbs">
+                <span class="item">
+                  <a href="/catalog/">Главная ></a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="shopify-grid padding-large">
+      <div class="container">
+        <div class="row">
+          <main class="col-md-9">
+            <div >
+              <div class="showing-product">
+                <p>Показ {{ object_list|length }} товаров</p>
+              </div>
+            <div class="row">
+              {% for product in object_list %}
+                  <div class="col-lg-4 col-md-6">
+                      <div class="product-card position-relative pe-3 pb-3">
+                          <div class="image-holder">
+                              <img src="{{ product.image.url }}" alt="{{ product.title }}" class="img-fluid">
+                          </div>
+                          <div class="cart-concern position-absolute">
+                              <div class="cart-button d-flex">
+                                  <!-- <div class="btn-left">
+                                      <a href="#" class="btn btn-medium btn-black">Add to Cart</a>
+                                      <svg class="cart-outline position-absolute">
+                                          <use xlink:href="#cart-outline"></use>
+                                      </svg>
+                                  </div> -->
+                              </div>
+                          </div>
+                          <div class="product-details">
+                            <h5 class="mb-2">
+                              <a href="{{ product.get_absolute_url }}">Название: {{ product.title }}</a>
+                            </h5>
+                            <p >
+                              <h5 class="cat-item">Артикул: {{ product.article }}
+                              </h5>
+                              
+                            </p>
+                            <h5 class="cat-item">
+                              <a href="{% url 'orders:profile_id' product.id  %}" class="read-more"><u>Подробнее</u></a>
+                            </h5>
+                            
+                              
+                            
+                          </div> 
+                      </div>
+                  </div>
+              {% endfor %}
+          </div>
+      
+          <nav class="navigation paging-navigation text-center padding-medium" role="navigation">
+              <div class="pagination loop-pagination d-flex justify-content-center align-items-center">
+                  {% if page_obj.has_previous %}
+                      <a href="?page={{ page_obj.previous_page_number }}">
+                          <svg class="chevron-left pe-3">
+                              <use xlink:href="#chevron-left"></use>
+                          </svg>
+                      </a>
+                  {% endif %}
+      
+                  {% for page_number in page_obj.paginator.page_range %}
+                      {% if page_number == page_obj.number %}
+                          <span aria-current="page" class="page-numbers current pe-3">{{ page_number }}</span>
+                      {% elif page_number <= page_obj.number|add:2 and page_number >= page_obj.number|add:-2 %}
+                          <a class="page-numbers pe-3" href="?page={{ page_number }}">{{ page_number }}</a>
+                      {% endif %}
+                  {% endfor %}
+      
+                  {% if page_obj.has_next %}
+                      <a href="?page={{ page_obj.next_page_number }}">
+                          <svg class="chevron-right ps-3">
+                              <use xlink:href="#chevron-right"></use>
+                          </svg>
+                      </a>
+                  {% endif %}
+              </div>
+          </nav>
+
+            
+          </main>
+          <aside class="col-md-3">
+            <div class="sidebar">
+              <div class="widget-menu">
+                <div class="widget-search-bar">
+                  <form role="search" method="get" class="d-flex">
+                    <input class="search-field" placeholder="Search" type="search">
+                    <div class="search-icon bg-dark">
+                      <a href="#">
+                        <svg class="search text-light">
+                          <use xlink:href="#search"></use>
+                        </svg>
+                      </a>
+                    </div>
+                  </form>
+                </div> 
+              </div>
+              <div class="widget-product-categories pt-5">
+                <h5 class="widget-title text-decoration-underline text-uppercase">Категории</h5>
+                <ul class="product-categories sidebar-list list-unstyled">
+                  {% for category in categories %}
+                  <li class="cat-item">
+                    <a href="{{ category.get_absolute_url }}">{{ category.title }}</a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div> 
+
+
+      
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <section id="subscribe" class="container-grid padding-large position-relative overflow-hidden">
+      <div class="container">
+        <div class="row">
+          <div class="subscribe-content bg-dark d-flex flex-wrap justify-content-center align-items-center padding-medium">
+            <div class="col-md-6 col-sm-12">
+              <div class="display-header pe-3">
+                <h2 class="display-7 text-uppercase text-light">Подпишись на нас сейчас</h2>
+                <p>Получайте последние новости, обновления и специальные предложения прямо на свой почтовый ящик.</p>
+              </div>
+            </div>
+            <div class="col-md-5 col-sm-12">
+              <form class="subscription-form validate">
+                <div class="input-group flex-wrap">
+                  <input class="form-control btn-rounded-none" type="email" name="EMAIL" placeholder="email" required="">
+                  <button class="btn btn-medium btn-primary text-uppercase btn-rounded-none" type="submit" name="subscribe">Подписаться</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% endblock %}

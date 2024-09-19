@@ -1,0 +1,119 @@
+﻿{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <section class="hero-section position-relative bg-light-blue padding-medium">
+      <div class="hero-content">
+        <div class="container">
+          <div class="row">
+            <div class="text-center padding-large no-padding-bottom">
+              <h1 class="display-2 text-uppercase text-dark">{{ user.username }}</h1>
+              <div class="breadcrumbs">
+                <span class="item">
+                  <a href="/catalog/">На главную ></a>
+                </span>
+                <span class="item"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="shopify-cart checkout-wrap padding-large">
+      <div class="container">
+        <form class="form-group">
+          <div class="row d-flex flex-wrap">
+            <div class="col-lg-6">
+              <h2 class="display-7 text-uppercase text-dark pb-4">Детали профиля</h2>
+              <div class="billing-details">
+                <dl>
+                  <dt>Имя пользователя:</dt>
+                  <dd>{{ user.username }}</dd>
+                  <dt>Email:</dt>
+                  <dd>{{ user.email }}</dd>
+                  <dt>Telegram ID:</dt>
+                  <dd>{{ user.telegram_id }}</dd>
+                  <dt>Описание профиля:</dt>
+                  <dd>{{ user.description_for_profil }}</dd>
+                  <dt>Изображение профиля:</dt>
+                  <dt>Роль:</dt>
+                  <dd>{{ user.role }}</dd>                 
+              <li>
+                <form method="post" action="{% url 'orders:logout' %}">
+                  {% csrf_token %}
+                  <button type="submit" class="nav-link bg-danger ms-2">Logout</button>
+              </form>
+              
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <h2 class="display-7 text-uppercase text-dark pb-4">Дополнительная информация</h2>
+              <div class="billing-details user-details-container">
+                <div class="user-image-container">
+                  <img src='{{ user.image.url }}' alt="Image placeholder" class="img-fluid w-50">
+                </div>
+                <label for="fname">Примечания к заказу (необязательно)</label>
+                <textarea class="form-control pt-3 pb-3 ps-3 mt-2" placeholder="Примечания к вашему заказу. Например, особые указания по доставке."></textarea>
+              </div>
+              <div class="your-order mt-5">
+                <h2 class="display-7 text-uppercase text-dark pb-4">Итого по корзине</h2>
+                <div class="total-price">
+                  <table cellspacing="0" class="table">
+                    <tbody>
+                      <tr class="subtotal border-top border-bottom pt-2 pb-2 text-uppercase">
+                        <th>Промежуточный итог</th>
+                        <td data-title="Subtotal">
+                          <span class="price-amount amount text-primary ps-5">
+                            <bdi>
+                              <span class="price-currency-symbol">$</span>2,370.00 </bdi>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr class="order-total border-bottom pt-2 pb-2 text-uppercase">
+                        <th>Итого</th>
+                        <td data-title="Total">
+                          <span class="price-amount amount text-primary ps-5">
+                            <bdi>
+                              <span class="price-currency-symbol">$</span>2,370.00 </bdi>
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button type="submit" name="submit" class="btn btn-dark btn-medium text-uppercase btn-rounded-none">Оформить заказ</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <section id="subscribe" class="container-grid position-relative overflow-hidden">
+      <div class="container">
+        <div class="row">
+          <div class="subscribe-content bg-dark d-flex flex-wrap justify-content-center align-items-center padding-medium">
+            <div class="col-md-6 col-sm-12">
+              <div class="display-header pe-3">
+                <h2 class="display-7 text-uppercase text-light">Subscribe Us Now</h2>
+                <p>Get latest news, updates and deals directly mailed to your inbox.</p>
+              </div>
+            </div>
+            <div class="col-md-5 col-sm-12">
+              <form class="subscription-form validate">
+                <div class="input-group flex-wrap">
+                  <input class="form-control btn-rounded-none" type="email" name="EMAIL" placeholder="Your email address here" required="">
+                  <button class="btn btn-medium btn-primary text-uppercase btn-rounded-none" type="submit" name="subscribe">Subscribe</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <style>
+      .user-details-container {
+        border: 2px solid #000;
+        border-radius: 5px;
+        padding: 15px;
+      }
+    </style>
+    {% endblock %}

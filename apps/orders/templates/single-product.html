@@ -1,0 +1,81 @@
+﻿{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <section id="selling-product" class="single-product padding-xlarge">
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col-lg-6">
+
+            <div class="product-preview mb-3">
+              <img src="{{ product.image.url }}" alt="{{ product.title }}" class="img-fluid" width="500" height="300">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="product-info">
+              <div class="element-header">
+                <h3 itemprop="name" class="display-7 text-uppercase">{{ product.title }}</h3>
+                <div class="rating-container d-flex align-items-center">
+                  <div class="rating" data-rating="1" onclick="rate(1)">
+
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="product-price pt-3 pb-3">
+                <strong class="text-primary display-6 fw-bold">АРТИКУЛ: {{ product.article }}</strong>
+              </div>
+              <p>Описание: {{ product.description }}</p>
+              <div class="cart-wrap padding-small">
+                <div class="color-options product-select">
+                  <div class="color-toggle" data-option-index="0">
+                    <h4 class="item-title  text-dark text-decoration-underline">Категории:</h4>
+                    {{ product.categories }}
+                    <ul class="select-list list-unstyled d-flex">
+                    </ul>
+                  </div>
+                </div>
+                <div class="product-quantity">
+                  <div class="stock-button-wrap pt-3">
+
+
+                  </div>
+                </div>
+              </div>
+
+
+
+
+        
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+     
+    <section id="subscribe" class="container-grid padding-large position-relative overflow-hidden">
+      <div class="container">
+        <div class="row">
+          <div class="subscribe-content bg-dark d-flex flex-wrap justify-content-center align-items-center padding-medium">
+            <div class="col-md-6 col-sm-12">
+              <div class="display-header pe-3">
+                <h2 class="display-7 text-uppercase text-light">Подпишись на нас сейчас</h2>
+                <p>Получайте последние новости, обновления и специальные предложения прямо на свой почтовый ящик.</p>
+              </div>
+            </div>
+            <div class="col-md-5 col-sm-12">
+              <form class="subscription-form validate">
+                <div class="input-group flex-wrap">
+                  <input class="form-control btn-rounded-none" type="email" name="EMAIL" placeholder="email" required="">
+                  <button class="btn btn-medium btn-primary text-uppercase btn-rounded-none" type="submit" name="subscribe">Подписаться</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    {% endblock %}

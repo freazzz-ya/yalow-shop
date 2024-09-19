@@ -1,0 +1,213 @@
+﻿
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <section class="hero-section position-relative bg-light-blue padding-medium">
+      <div class="hero-content">
+        <div class="container">
+          <div class="row">
+            <div class="text-center padding-large no-padding-bottom">
+              <h1 class="display-2 text-uppercase text-dark">О нас</h1>
+              <div class="breadcrumbs">
+                <span class="item">
+                  <a href="/catalog/">Главная ></a>
+                </span>
+                <span class="item"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="company-services" class="padding-large">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 pb-3">
+            <div class="icon-box d-flex">
+              <div class="icon-box-icon pe-3 pb-3">
+                <svg class="cart-outline">
+                  <use xlink:href="#cart-outline" />
+                </svg>
+              </div>
+              <div class="icon-box-content">
+                <h3 class="card-title text-uppercase text-dark">Быстрая доставка</h3>
+                <p>Наши менеджеры отправляют товары максимально быстро.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 pb-3">
+            <div class="icon-box d-flex">
+              <div class="icon-box-icon pe-3 pb-3">
+                <svg class="quality">
+                  <use xlink:href="#quality" />
+                </svg>
+              </div>
+              <div class="icon-box-content">
+                <h3 class="card-title text-uppercase text-dark">Гарантия возврата</h3>
+                <p>В случае дефекта - вернем деньги.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 pb-3">
+            <div class="icon-box d-flex">
+              <div class="icon-box-icon pe-3 pb-3">
+                <svg class="price-tag">
+                  <use xlink:href="#price-tag" />
+                </svg>
+              </div>
+              <div class="icon-box-content">
+                <h3 class="card-title text-uppercase text-dark">Постоянные скидки</h3>
+                <p>Ежемесячные скидки и розыгрыши.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 pb-3">
+            <div class="icon-box d-flex">
+              <div class="icon-box-icon pe-3 pb-3">
+                <svg class="shield-plus">
+                  <use xlink:href="#shield-plus" />
+                </svg>
+              </div>
+              <div class="icon-box-content">
+                <h3 class="card-title text-uppercase text-dark">Гарантия качества</h3>
+                <p>Мы работаем только с надежными поставщиками.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about-us" class="padding-large no-padding-top">
+      <div class="container">
+        <div class="row d-flex flex-wrap align-items-center justify-content-between">
+          <div class="col-lg-6 col-md-12">
+            <div class="image-holder mb-4">
+              <div>
+                <img src="{% static "images/ss.webp" %}" alt="single" class="single-image" style="width: 100%; height: auto;">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="detail ps-5">
+              <div class="display-header">
+                <h2 class="display-7 text-uppercase text-dark">
+                  Yalow: Ваш надежный партнер в мире инноваций</h2>
+                <p class="pb-3">Yalow - это компания, которая стремится быть лидером в области инновационных технологий и решений, предлагая своим клиентам передовые продукты и услуги, которые помогают им достичь их целей и выйти на новый уровень успеха. <br>
+                  Основанная в 2010 году, Yalow быстро зарекомендовала себя как надежный и инновационный игрок на рынке, благодаря своей приверженности к качеству, эффективности и постоянному совершенствованию. Компания гордится тем, что ее команда состоит из высококвалифицированных специалистов, которые обладают глубокими знаниями и опытом в своих областях, что позволяет им разрабатывать и внедрять передовые решения, отвечающие самым высоким стандартам. </p>
+                <a href="/catalog/shop/" class="btn btn-medium btn-dark text-uppercase btn-rounded-none">Магазин</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="latest-blog" class="position-relative">
+      <div class="container">
+        <div class="row">
+          <div class="review-content position-relative">
+            <div class="swiper-icon swiper-arrow swiper-arrow-prev position-absolute d-flex align-items-center">
+              <svg class="chevron-left">
+                <use xlink:href="#chevron-left" />
+              </svg>
+            </div>
+            <div class="swiper testimonial-swiper">
+              <div class="quotation text-center">
+                <svg class="quote">
+                  <use xlink:href="#quote" />
+                </svg>
+              </div>
+              <div class="swiper-wrapper">
+                <div class="swiper-slide text-center d-flex justify-content-center">
+                  <div class="review-item col-md-10">
+                    <i class="icon icon-review"></i>
+                    
+                    
+                    <blockquote style="font-family: 'Times New Roman', serif;">"Несмотря на то, что сам бренд молодой, товары представленные им - наивысшего качества!"</blockquote>
+
+
+                    <div class="rating">
+                      <svg class="star star-fill">
+                        <use xlink:href="#star-fill"></use>
+                      </svg>
+                      <svg class="star star-fill">
+                        <use xlink:href="#star-fill"></use>
+                      </svg>
+                      <svg class="star star-fill">
+                        <use xlink:href="#star-fill"></use>
+                      </svg>
+                      <svg class="star star-half">
+                        <use xlink:href="#star-fill"></use>
+                      </svg>
+                      <svg class="star star-empty">
+                        <use xlink:href="#star-half"></use>
+                      </svg>
+                    </div>
+                    <div class="author-detail">
+                      <div class="name text-dark text-uppercase pt-2">Карина Сафина</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide text-center d-flex justify-content-center">
+                  <div class="review-item col-md-10">
+                    <i class="icon icon-review"></i>
+                    <blockquote style="font-family: 'Times New Roman', serif;">"Постоянная поддержка, хорошее качество, быстрая доставка. Все супер."</blockquote>
+                    <div class="rating">
+                      <svg class="star star-fill">
+                        <use xlink:href="#star-fill"></use>
+                      </svg>
+                      <svg class="star star-fill">
+                        <use xlink:href="#star-fill"></use>
+                      </svg>
+                      <svg class="star star-fill">
+                        <use xlink:href="#star-fill"></use>
+                      </svg>
+                      <svg class="star star-half">
+                        <use xlink:href="#star-fill"></use>
+                      </svg>
+                      <svg class="star star-empty">
+                        <use xlink:href="#star-half"></use>
+                      </svg>
+                    </div>
+                    <div class="author-detail">
+                      <div class="name text-dark text-uppercase pt-2">Сергей Носков</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-icon swiper-arrow swiper-arrow-next position-absolute d-flex align-items-center">
+              <svg class="chevron-right">
+                <use xlink:href="#chevron-right" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </section>
+
+    <section id="subscribe" class="container-grid padding-large position-relative overflow-hidden">
+      <div class="container">
+        <div class="row">
+          <div class="subscribe-content bg-dark d-flex flex-wrap justify-content-center align-items-center padding-medium">
+            <div class="col-md-6 col-sm-12">
+              <div class="display-header pe-3">
+                <h2 class="display-7 text-uppercase text-light">Подпишись на нас сейчас</h2>
+                <p>Получайте последние новости, обновления и специальные предложения прямо на свой почтовый ящик.</p>
+              </div>
+            </div>
+            <div class="col-md-5 col-sm-12">
+              <form class="subscription-form validate">
+                <div class="input-group flex-wrap">
+                  <input class="form-control btn-rounded-none" type="email" name="EMAIL" placeholder="email" required="">
+                  <button class="btn btn-medium btn-primary text-uppercase btn-rounded-none" type="submit" name="subscribe">Подписаться</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}
